@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Web3-Shards/web3-shards/issues"
   },
-  "homepage": "https://github.com/Web3-Shards/web3-shards#readme"
+  "homepage": "https://github.com/Web3-Shards/web3-shards#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.12"
+  }
 }
