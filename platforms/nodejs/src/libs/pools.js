@@ -13,8 +13,8 @@ LICENSE file in the root directory of this source tree.
 const ShardsLib = require("./lib");
 
 class PoolLib extends ShardsLib {
-    constructor(_url) {
-        super(_url);
+    constructor(_chain, _url) {
+        super(_chain, _url);
     }
     
 }

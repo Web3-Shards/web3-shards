@@ -25,8 +25,14 @@ const getTradesOnToken = async function() {
     console.log(data.length);
 }
 
+const getLatestBlock = async function() {
+    const resp = await shards.blocks.getLatestBlock();
+    console.log(resp)
+}
+
 const demo = async function() {
-    await getTradesOnToken();
+    // await getTradesOnToken();
+    await getLatestBlock();
 }
 
 demo();

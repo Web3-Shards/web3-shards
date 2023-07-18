@@ -23,14 +23,15 @@ const requireNumber = function(_obj, _field, _default) {
 
 class ShardsClient {
     constructor(_chain, _version) {
+        this._chain = _chain;
         this._url = `${SVC_URL}${_version}/`;
-        this.blocks = new BlockLib(this._url);
-        this.pools = new PoolLib(this._url);
-        this.projects = new ProjectLib(this._url);
-        this.transactions = new TransactionLib(this._url);
-        this.evm = new EVMLib(this._url);
-        this.prices = new PriceLib(this._url);
-        this.assets = new AssetLib(this._url);
+        this.blocks = new BlockLib(this._chain, this._url);
+        this.pools = new PoolLib(this._chain, this._url);
+        this.projects = new ProjectLib(this._chain, this._url);
+        this.transactions = new TransactionLib(this._chain, this._url);
+        this.evm = new EVMLib(this._chain, this._url);
+        this.prices = new PriceLib(this._chain, this._url);
+        this.assets = new AssetLib(this._chain, this._url);
     }
 
     /**

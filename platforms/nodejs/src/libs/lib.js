@@ -12,7 +12,8 @@ const fetch = require("node-fetch");
 "use strict";
 
 class ShardsLib {
-    constructor(_url) {
+    constructor(_chain, _url) {
+        this._chain = _chain;
         this._url = _url;
     }
 
@@ -21,7 +22,7 @@ class ShardsLib {
         this._config = _config;
     }
 
-    async _get(_resource) {
+    async _get(_resource, _method='GET', _body=null) {
         try {
             if (!this._config) {
                 return { error: 'No configuration object found. Use shardsClient.configure(). See https://github.com/Web3-Shards/web3-shards/main/platforms/nodejs/README.md' };
@@ -29,21 +30,24 @@ class ShardsLib {
             if (!this._config.apiKey) {
                 return { error: 'Missing api-key in request. Use shardsClient.configure(). See https://github.com/Web3-Shards/web3-shards/main/platforms/nodejs/README.md' };
             }
-            const _now = Date.now();
-            const _dt_allow = (1 / this._config.maxRequestsPerSecond) * 1000;
-            if (!this._ctl._lastCallTime)
+            if (this._config.maxRequestsPerSecond > -1) { // if not unlimited
+                const _now = Date.now();
+                const _dt_allow = (1 / this._config.maxRequestsPerSecond) * 1000;
+                if (!this._ctl._lastCallTime)
+                    this._ctl._lastCallTime = _now;
+                else if (_now - this._ctl._lastCallTime < _dt_allow) {
+                    return { error: `Exceeding max requests per second: ${this._config.maxRequestsPerSecond} or 1 call every ${_dt_allow}ms` }
+                }
                 this._ctl._lastCallTime = _now;
-            else if (_now - this._ctl._lastCallTime < _dt_allow) {
-                return { error: `Exceeding max requests per second: ${this._config.maxRequestsPerSecond} or 1 call every ${_dt_allow}ms` }
             }
-            this._ctl._lastCallTime = _now;
             const _resp = await fetch(`${this._url}${_resource}`, {
-                method: 'GET',
+                method: _method,
                 headers: {
                     'Content-Type': 'application/json',
                     'Api-Key': this._config.apiKey
                 },
-                referrerPolicy: 'no-referrer'
+                referrerPolicy: 'no-referrer',
+                body: _body ? JSON.stringify(_body) : null
             });
             const _ret = await _resp.json();
             if (!_ret.statusCode) {
