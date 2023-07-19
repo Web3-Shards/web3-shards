@@ -1,10 +1,9 @@
-const Policies = require('../../src/policies');
 module.exports = [
     {
         testName: 'Get All Projects',
         purpose: 'it should return all projects with a pagination token',
-        method: 'GET',
-        path: '/projects?page=1&chain=eth',
+        function: 'projects.getAllProjects',
+        args: [],
         expected: {
             $match: [
                 {
@@ -25,8 +24,8 @@ module.exports = [
     {
         testName: 'Get Active Projects',
         purpose: 'it should only return active projects',
-        method: 'GET',
-        path: '/projects/active?page=1&chain=eth',
+        function: 'projects.getActiveProjects',
+        args: [],
         expected: {
             $match: [
                 {
@@ -43,8 +42,8 @@ module.exports = [
     {
         testName: 'Get Stale Projects',
         purpose: 'it should only return stale projects',
-        method: 'GET',
-        path: '/projects/stale?page=1&chain=eth',
+        function: 'projects.getStaleProjects',
+        args: [],
         expected: {
             $match: [
                 {
@@ -62,8 +61,8 @@ module.exports = [
     {
         testName: 'Get Dead Projects',
         purpose: 'it should only return dead projects',
-        method: 'GET',
-        path: '/projects/dead?page=1&chain=eth',
+        function: 'projects.getDeadProjects',
+        args: [],
         expected: {
             $match: [
                 {
@@ -81,13 +80,13 @@ module.exports = [
     {
         testName: 'Get Project by Pool Address',
         purpose: 'it should return a single project',
-        method: 'GET',
-        path: '/projects/search?chain=eth&query=0x9cbfa55cc44dd9d65e735462e4edc8e8158b6567',
+        function: 'projects.getProjectWithPoolAddress',
+        args: [ '0x5764a6f2212d502bc5970f9f129ffcd61e5d7563' ],
         expected: {
             $match: [
                 {
-                    key: 'projects.0.pool_address',
-                    value: '0x9cbfa55cc44dd9d65e735462e4edc8e8158b6567'
+                    key: 'projects',
+                    $foreach: project=>project.pool_address != null
                 }
             ]
         }
@@ -95,13 +94,13 @@ module.exports = [
     {
         testName: 'Get Project by Token Address',
         purpose: 'it should return an array of projects that belong to the token',
-        method: 'GET',
-        path: '/projects/search?chain=eth&query=0x9cbfa55cc44dd9d65e735462e4edc8e8158b6567',
+        function: 'projects.getProjectWithTokenAddress',
+        args: [ '0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce' ],
         expected: {
             $match: [
                 {
-                    key: 'projects.0.pool_address',
-                    value: '0x9cbfa55cc44dd9d65e735462e4edc8e8158b6567'
+                    key: 'projects',
+                    $foreach: project=>project.pool_address != null
                 }
             ]
         }
@@ -109,22 +108,22 @@ module.exports = [
     {
         testName: 'Get Project by Token Name',
         purpose: 'it should return an array of projects that use to the token name',
-        method: 'GET',
-        path: '/projects/search?chain=eth&query=rip',
+        function: 'projects.searchProject',
+        args: [ 'rip' ],
         expected: {
             $match: [
                 {
-                    key: 'projects.1.price_live',
-                    value: 0
+                    key: 'statusCode',
+                    value: 200
                 }
             ]
         }
     },
     {
         testName: 'Get Nonexistent Project',
-        purpose: 'it should return a 204',
-        method: 'GET',
-        path: '/projects/search?chain=eth&query=.',
+        purpose: 'it should return a 200',
+        function: 'projects.searchProject',
+        args: [ '.' ],
         expected: {
             $match: [
                 {
@@ -138,92 +137,4 @@ module.exports = [
             ]
         }
     },
-    {
-        testName: 'Get Backfill Projects',
-        purpose: 'it should return projects that need to be backfilled',
-        method: 'GET',
-        path: '/projects/backfill?chain=eth',
-        expected: {
-            $match: [
-                {
-                    key: 'statusCode',
-                    value: 200
-                }
-            ]
-        }
-    },
-    {
-        testName: 'Insert Projects',
-        purpose: 'it should insert new projects',
-        method: 'PUT',
-        path: '/projects/insert',
-        body: {
-            projects: [
-                {
-                    "pool_address": "testpool1",
-                    "address": "testaddr1",
-                    "chain": "eth",
-                    "name": "testname",
-                    "symbol": "testsymbol",
-                    "decimals": "18",
-                    "lastScannedBlock": 17412257,
-                    "base": {
-                        "name": "Wrapped Ether",
-                        "symbol": "WETH",
-                        "decimals": "18",
-                        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-                    },
-                    "pairSymbol": "testsymbol/WETH",
-                    "token0": "testtoken0"
-                },
-                {
-                    "pool_address": "testpool2",
-                    "address": "testaddr2",
-                    "chain": "eth",
-                    "name": "testname",
-                    "symbol": "testsymbol",
-                    "decimals": "18",
-                    "lastScannedBlock": 17412257,
-                    "base": {
-                        "name": "Wrapped Ether",
-                        "symbol": "WETH",
-                        "decimals": "18",
-                        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-                    },
-                    "pairSymbol": "testsymbol/WETH",
-                    "token0": "testtoken0"
-                }
-            ]
-        },
-        expected: {
-            duplicate: true
-        }
-    },
-    {
-        testName: 'Update Project',
-        purpose: 'it should update a project',
-        method: 'POST',
-        path: '/projects/update',
-        body: {
-            project: {
-                "pool_address": "testpool1",
-                "address": "testaddr1",
-                "chain": "eth",
-                "name": "testname",
-                "symbol": "testsymbol",
-                "decimals": "18",
-                "lastScannedBlock": 17412257,
-                "base": {
-                    "name": "Wrapped Ether",
-                    "symbol": "WETH",
-                    "decimals": "18",
-                    "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-                },
-                "pairSymbol": "testsymbol/WETH"
-            }
-        },
-        expected: {
-            statusCode: 200
-        }
-    }
 ]

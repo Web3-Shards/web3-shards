@@ -29,9 +29,9 @@ const fail = function(_mock, _because) {
 |`;
 }
 
-const pass = function(_mock) {
+const pass = function(_mock, _execTime) {
     results.pass++;
-    return `✅ \x1b[32m${_mock.testName}\x1b[0m`;
+    return `✅ \x1b[32m${_mock.testName}\x1b[0m 🕒 ${parseFloat((_execTime/1000).toFixed(2)).toLocaleString()}s`;
 }
 
 const allPass = function() {
@@ -43,8 +43,11 @@ const testMock = async function(_mock, _class) {
         results.messages[_class] = [];
     }
     
+    console.log(`\x1b[37mtesting ${_mock.function}\x1b[0m`)
+    const _start = Date.now();
+
     const _funcParts = _mock.function.split('.');
-    let _resp
+    let _resp;
     for (var i in _funcParts) {
         if (i == _funcParts.length - 1) {
             _resp = await _resp[_funcParts[i]](..._mock.args);
@@ -54,8 +57,9 @@ const testMock = async function(_mock, _class) {
             _resp = _resp[_funcParts[i]];
         }
     }
+    
+    const _dt = Date.now()-_start;
 
-    console.log(_mock.function)
     // console.log(_resp)
 
     for (const key of Object.keys(_mock.expected)) {
@@ -131,7 +135,7 @@ const testMock = async function(_mock, _class) {
             return;
         }
     }
-    results.messages[_class].push(pass(_mock));
+    results.messages[_class].push(pass(_mock, _dt));
     return;
 }
 

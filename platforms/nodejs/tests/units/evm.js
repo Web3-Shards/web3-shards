@@ -2,8 +2,8 @@ module.exports = [
     {
         testName: 'Get Native Balance',
         purpose: 'it should return a native balance for a given wallet address',
-        method: 'GET',
-        path: '/evm/balance/native?chain=eth&address=0x000',
+        function: 'evm.getNativeBalance',
+        args: [ '0x0000' ],
         expected: {
             $match: [
                 {

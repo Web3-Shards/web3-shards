@@ -17,6 +17,9 @@ class EVMLib extends ShardsLib {
         super(_chain, _url);
     }
     
+    async getNativeBalance(_address) {
+        return await this._get(`evm/balance/native?chain=${this._chain}&address=${_address}`)
+    }
 }
 
 module.exports = EVMLib;

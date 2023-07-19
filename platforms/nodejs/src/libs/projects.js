@@ -17,6 +17,33 @@ class ProjectLib extends ShardsLib {
         super(_chain, _url);
     }
     
+    async getAllProjects(_page=1) {
+        return await this._get(`projects?chain=${this._chain}&page=${_page}`);
+    }
+
+    async getActiveProjects(_page=1) {
+        return await this._get(`projects/active?chain=${this._chain}&page=${_page}`);
+    }
+
+    async getStaleProjects(_page=1) {
+        return await this._get(`projects/stale?chain=${this._chain}&page=${_page}`);
+    }
+
+    async getDeadProjects(_page=1) {
+        return await this._get(`projects/dead?chain=${this._chain}&page=${_page}`);
+    }
+
+    async getProjectWithPoolAddress(_address) {
+        return await this._get(`projects/search?chain=${this._chain}&query=${_address}`);
+    }
+
+    async getProjectWithTokenAddress(_address) {
+        return await this._get(`projects/search?chain=${this._chain}&query=${_address}`);
+    }
+
+    async searchProject(_query) {
+        return await this._get(`projects/search?chain=${this._chain}&query=${_query}`);
+    }
 }
 
 module.exports = ProjectLib;

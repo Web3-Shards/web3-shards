@@ -44,7 +44,7 @@ class ShardsLib {
                 method: _method,
                 headers: {
                     'Content-Type': 'application/json',
-                    'Api-Key': this._config.apiKey
+                    'X-Api-Key': this._config.apiKey
                 },
                 referrerPolicy: 'no-referrer',
                 body: _body ? JSON.stringify(_body) : null
@@ -54,9 +54,10 @@ class ShardsLib {
                 return { error: `Something went wrong requesting data from ${_resource}` };
             }
             switch (_ret.statusCode) {
-                case 200: return _ret;
+                case 200: case 500: return _ret;
                 case 401: return { error: `Authorization failed when requesting data from ${_resource}. Is your api-key correct? Using ${this._config.apiKey}` };
                 case 429: return { error: `Too many requests when requesting data from ${_resource}` };
+                case 404: case 204: return { error: `Content not found from ${_resource}` };
                 default: return { error: `Something went wrong requesting data from ${_resource}` };
             }
         }

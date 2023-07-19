@@ -17,6 +17,18 @@ class PoolLib extends ShardsLib {
         super(_chain, _url);
     }
     
+    async getPoolWithPoolAddress(_address) {
+        return await this._get(`pools/search?chain=${this._chain}&query=${_address}`);
+    }
+
+    async getPoolWithTokenAddress(_address) {
+        return await this._get(`pools/search?chain=${this._chain}&query=${_address}`);
+    }
+
+    async searchToken(_query) {
+        return await this._get(`pools/search?chain=${this._chain}&query=${_query}`);
+    }
+
 }
 
 module.exports = PoolLib;

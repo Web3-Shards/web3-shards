@@ -5,5 +5,4 @@ module.exports = {
     TransactionLib: require("./transactions"),
     EVMLib: require("./evm"),
     PriceLib: require("./prices"),
-    AssetLib: require("./assets"),
 }
