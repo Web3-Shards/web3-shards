@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Web3-Shards/web3-shards#readme",
   "dependencies": {
-    "node-fetch": "^2.6.12"
+    "node-fetch": "^2.6.12",
+    "socket.io-client": "^4.7.1"
   }
 }
