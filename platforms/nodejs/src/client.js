@@ -35,7 +35,7 @@ class ShardsClient {
 
     /**
      * Configure the web3-shards client with your preferred settings:
-     *  - apiKey: The api key you were assigned at https://dev.web3shards.io
+     *  - apiKey: Your api key
      *  - maxRequestsPerSecond: Default is 10. Helps prevent accidentally exceeding your allowance. Set to -1 for "unlimited".
      *  - logger: Default is 1. 0=none,1=errors,2=verbose
      * @param {Object} _config 

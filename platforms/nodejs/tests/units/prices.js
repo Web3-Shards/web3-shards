@@ -32,11 +32,11 @@ module.exports = [
                 },
                 {
                     key: 'timestamp',
-                    value: 1688912100
+                    value: 1688911200
                 },
                 {
                     key: 'price',
-                    value: 1860.34
+                    value: 1866.49
                 }
             ]
         }

@@ -10,41 +10,90 @@ const NetMsg = {
     NewBlockHeaders: 'newBlockHeaders',
     Logs: 'logs',
     PendingTransactions: 'pendingTransactions',
-    FilteredTrades: 'filteredTrades'
+    FilteredTrades: 'filteredTrades',
+    FilteredPairs: 'filteredPairs'
 };
 
 class ShardsSocketClient {
-    constructor(_config) {
-        this._config = _config;
-        // this._url = 'ws://wiretap.web3shards.io';
-        this._url = 'ws://localhost:3549';
+    constructor() {
+        this._url = 'ws://wiretap.web3shards.io';
         this._hook = this._hook.bind(this);
-        this._handleLog = this._handleLog.bind(this);
+        this._connect = this._connect.bind(this);
+
     }
 
-    async connect() {
-        console.log('connecting to web3 shards @ '+this._url);
-        this._socket = io(this._url, {
-            reconnectionDelayMax: 10000,
-            path: `/${this._config.chain}/`
-        });
-        this._socket.on(NetMsg.Connect, this._hook);
+    createConnection(_config) {
+        let _conn = new ShardsSocketClient();
+        return _conn._connect(_config);
+    }
+
+    subscribe(_hook) {
+        this._emitData = _hook;
+        return this;
+    }
+
+    onDisconnect(_hook) {
+        this._emitDisconnect = _hook;
+        return this;
+    }
+
+    onError(_hook) {
+        this._emitError = _hook;
+        return this;
+    }
+
+    _connect(_config) {
+        try {
+            this._config = _config;
+            if (this._url.includes('3549') && this._config.chain == 'bsc')
+                this._url = this._url.replace('3549', '3550');
+            console.log('connecting to web3 shards @ '+this._url);
+            this._socket = io(this._url, {
+                reconnectionDelayMax: 10000,
+                path: `/${this._config.chain}/`
+            });
+            this._socket.on(NetMsg.Connect, this._hook);
+        } catch (_err) {
+            console.log(`an error occurred: ${_err}`);
+        }
+        return this;
     }
 
     _hook() {
-        console.log('connected');
+        this._socket.on(NetMsg.Handshake, function(_data) {
+            if (_data.success) {
+                console.log(`handshake confirmed. waiting for data...`);
+            }
+        }.bind(this));
 
         this._socket.on(NetMsg.Error, function(_error) {
-            console.log(`an error occurred: ${_error.error}`);
+            if (this._emitError)
+                this._emitError(`an error occurred: ${_error.error}`);
         }.bind(this));
 
         this._socket.on(NetMsg.Disconnect, function() {
-            console.log(`disconnected`);
+            if (this._emitDisconnect)
+                this._emitDisconnect();
         }.bind(this));
         
-        this._socket.on(NetMsg.FilteredTrades, function(_log) {
-            console.log(`log received`);
-            this._handleLog(_log);
+        this._socket.on(NetMsg.NewBlockHeaders, function(_data) {
+            if (this._emitData)
+                this._emitData(NetMsg.NewBlockHeaders, _data);
+        }.bind(this));
+        
+        this._socket.on(NetMsg.Logs, function(_data) {
+            if (this._emitData)
+                this._emitData(NetMsg.Logs, _data);
+        }.bind(this));
+        
+        this._socket.on(NetMsg.FilteredTrades, function(_data) {
+            if (this._emitData)
+                this._emitData(NetMsg.FilteredTrades, _data);
+        }.bind(this));
+        
+        this._socket.on(NetMsg.FilteredPairs, function(_data) {
+            if (this._emitData)
+                this._emitData(NetMsg.FilteredPairs, _data);
         }.bind(this));
 
         this._socket.emit(NetMsg.Handshake, {
@@ -53,18 +102,6 @@ class ShardsSocketClient {
         });
     }
 
-    _handleLog(_log) {
-        if (!_log.topics) return;
-        if (_log.topics.length == 0) return;
-        const _topic = _log.topics[0];
-        if (this._onLiveTradeLog) {
-            this._onLiveTradeLog(_log, _topic);
-        }
-    }
-
-    set onLiveTradeLog(_val) {
-        this._onLiveTradeLog = _val;
-    }
 }
 
-module.exports = ShardsSocketClient;
+module.exports = new ShardsSocketClient();

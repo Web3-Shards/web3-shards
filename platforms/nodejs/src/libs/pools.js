@@ -25,7 +25,7 @@ class PoolLib extends ShardsLib {
         return await this._get(`pools/search?chain=${this._chain}&query=${_address}`);
     }
 
-    async searchToken(_query) {
+    async searchPool(_query) {
         return await this._get(`pools/search?chain=${this._chain}&query=${_query}`);
     }
 

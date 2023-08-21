@@ -31,7 +31,7 @@ module.exports = [
     {
         testName: 'Get Pool With Token Name',
         purpose: 'it should return an array of pools using a token name, each including an array of pools',
-        function: 'pools.searchToken',
+        function: 'pools.searchPool',
         args: [ 'bone shibaswap' ],
         expected: { 
             $match: [
@@ -45,7 +45,7 @@ module.exports = [
     {
         testName: 'Get Pool With Token Symbol',
         purpose: 'it should return an array of pools using a token symbol, each including an array of pools',
-        function: 'pools.searchToken',
+        function: 'pools.searchPool',
         args: [ 'bone' ],
         expected: { 
             $match: [

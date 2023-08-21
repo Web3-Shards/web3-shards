@@ -31,8 +31,8 @@ class PriceLib extends ShardsLib {
         return await this._get(`prices/history/native?token=${this._nativeToken}&timestamp=${_timestamp}`);
     }
 
-    async getNativePriceLines(_startTime, _endTime) {
-        return await this._get(`prices/history/lines/native?token=${this._nativeToken}&starttime=${_startTime}&endtime=${_endTime}`);
+    async getNativePriceLines(_startTime, _endTime, _page=1) {
+        return await this._get(`prices/history/lines/native?token=${this._nativeToken}&starttime=${_startTime}&endtime=${_endTime}&page=${_page}`);
     }
 
     async getPoolPrice(_address) {
@@ -47,12 +47,12 @@ class PriceLib extends ShardsLib {
         return await this._get(`prices/history/pool?address=${_address}&timestamp=${_timestamp}`);
     }
 
-    async getPoolPriceLines(_address, _startTime, _endTime, _interval=Period.dataValue(Period.HOUR_1)) {
-        return await this._get(`prices/history/lines/pool?address=${_address}&starttime=${_startTime}&endtime=${_endTime}&interval=${_interval}`);
+    async getPoolPriceLines(_address, _startTime, _endTime, _interval=Period.dataValue(Period.HOUR_1), _page=1) {
+        return await this._get(`prices/history/lines/pool?address=${_address}&starttime=${_startTime}&endtime=${_endTime}&interval=${_interval}&page=${_page}`);
     }
 
-    async getPoolPriceCandles(_address, _startTime, _endTime, _interval=Period.dataValue(Period.HOUR_1)) {
-        return await this._get(`prices/history/candles/pool?address=${_address}&starttime=${_startTime}&endtime=${_endTime}&interval=${_interval}`);
+    async getPoolPriceCandles(_address, _startTime, _endTime, _interval=Period.dataValue(Period.HOUR_1), _page=1) {
+        return await this._get(`prices/history/candles/pool?address=${_address}&starttime=${_startTime}&endtime=${_endTime}&interval=${_interval}&page=${_page}`);
     }
 }
 
