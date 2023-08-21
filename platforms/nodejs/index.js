@@ -8,4 +8,7 @@ LICENSE file in the root directory of this source tree.
 
 */
 
-module.exports=require("./src/client");
+module.exports={
+    API: require("./src/client"),
+    Sockets: require("./src/socketClient"),
+}
