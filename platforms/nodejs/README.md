@@ -16,7 +16,7 @@ We just started our beta program and have begun issuing keys. For a limited time
 - [Price API](https://web3-shards.readme.io/reference/prices-pool)
 - [Pools API](https://web3-shards.readme.io/reference/pools-search)
 - [Projects API](https://web3-shards.readme.io/reference/projects-all)
-- [Trades API](https://web3-shards.readme.io/reference/token-trades)
+- [Trades API](https://web3-shards.readme.io/reference/txns-trades-token)
 
 ## Connect to the API
 
