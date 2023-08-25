@@ -16,7 +16,7 @@ const NetMsg = {
 
 class ShardsSocketClient {
     constructor() {
-        this._url = 'ws://wiretap.web3shards.io';
+        this._url = 'wss://wiretap.web3shards.io';
         this._hook = this._hook.bind(this);
         this._connect = this._connect.bind(this);
 

@@ -1,6 +1,6 @@
 {
   "name": "web3-shards",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A library for data access on evm-compatible blockchains.",
   "main": "index.js",
   "scripts": {
