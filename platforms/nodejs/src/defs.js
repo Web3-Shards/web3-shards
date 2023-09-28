@@ -16,12 +16,12 @@ const SVC_VERSIONS = {
 const EVM = {
     Ethereum: "eth",
     BinanceSmartChain: "bsc",
+    Shibarium: "shibarium",
     // Arbitrum: 0x00010,
     // Polygon: 0x00011,
     // Avalanche: 0x00100,
     // Optimism: 0x00101,
     // Gnosis: 0x00110,
-    // Shibarium: 0x00111
 }
 const Period = {
     MINUTE_1: 'MINUTE_1',

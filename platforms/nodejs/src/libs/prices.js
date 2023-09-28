@@ -16,7 +16,9 @@ const ShardsLib = require("./lib");
 class PriceLib extends ShardsLib {
     constructor(_chain, _url) {
         super(_chain, _url);
-        this._nativeToken = _chain == EVM.Ethereum ? 'eth' : EVM.BinanceSmartChain ? 'bnb' : 'eth';
+        this._nativeToken = _chain == EVM.Ethereum ? 'eth' : 
+                            _chain == EVM.BinanceSmartChain ? 'bnb' : 
+                            _chain == EVM.Shibarium ? 'shibarium' : 'eth';
     }
     
     async getNativePrice() {

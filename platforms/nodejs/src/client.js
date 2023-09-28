@@ -60,5 +60,8 @@ module.exports = {
     },
     BSC: {
         V1: new ShardsClient(EVM.BinanceSmartChain, SVC_VERSIONS.V1)
+    },
+    SHIBARIUM: {
+        V1: new ShardsClient(EVM.Shibarium, SVC_VERSIONS.V1)
     }
 };
