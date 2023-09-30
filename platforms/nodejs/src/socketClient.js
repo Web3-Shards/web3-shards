@@ -45,8 +45,6 @@ class ShardsSocketClient {
     _connect(_config) {
         try {
             this._config = _config;
-            if (this._url.includes('3549') && this._config.chain == 'bsc')
-                this._url = this._url.replace('3549', '3550');
             console.log('connecting to web3 shards @ '+this._url);
             this._socket = io(this._url, {
                 reconnectionDelayMax: 10000,
@@ -60,6 +58,9 @@ class ShardsSocketClient {
     }
 
     _hook() {
+        this._socket.removeAllListeners();
+        this._socket.on(NetMsg.Connect, this._hook);
+        
         this._socket.on(NetMsg.Handshake, function(_data) {
             if (_data.success) {
                 console.log(`handshake confirmed. waiting for data...`);
