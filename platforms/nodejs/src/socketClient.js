@@ -22,7 +22,14 @@ class ShardsSocketClient {
 
     }
 
-    createConnection(_config) {
+    /**
+     * Creates a new websocket connection
+     * @param {*} _config Config: {chain,shardsApiKey,shardsWebsocketId}
+     * @param {*} _localizedMatcher Object with fields to filter incoming data by.
+     * @returns 
+     */
+    createConnection(_config, _localizedMatcher=null) {
+        this._localizedMatcher = _localizedMatcher;
         let _conn = new ShardsSocketClient();
         return _conn._connect(_config);
     }
@@ -97,10 +104,16 @@ class ShardsSocketClient {
                 this._emitData(NetMsg.FilteredPairs, _data);
         }.bind(this));
 
-        this._socket.emit(NetMsg.Handshake, {
+        let _handshake = {
             apiKey: this._config.shardsApiKey,
             roomId: this._config.shardsWebsocketId
-        });
+        }
+
+        if (this._localizedMatcher) {
+            _handshake.match = this._localizedMatcher;
+        }
+
+        this._socket.emit(NetMsg.Handshake, _handshake);
     }
 
 }
