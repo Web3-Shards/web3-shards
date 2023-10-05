@@ -15,7 +15,8 @@ const NetMsg = {
 };
 
 class ShardsSocketClient {
-    constructor() {
+    constructor(_localizedMatcher=null) {
+        this._localizedMatcher = _localizedMatcher;
         this._url = 'wss://wiretap.web3shards.io';
         this._hook = this._hook.bind(this);
         this._connect = this._connect.bind(this);
@@ -29,8 +30,7 @@ class ShardsSocketClient {
      * @returns 
      */
     createConnection(_config, _localizedMatcher=null) {
-        this._localizedMatcher = _localizedMatcher;
-        let _conn = new ShardsSocketClient();
+        let _conn = new ShardsSocketClient(_localizedMatcher);
         return _conn._connect(_config);
     }
 
