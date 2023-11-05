@@ -48,6 +48,22 @@ class ProjectLib extends ShardsLib {
     async searchProject(_query) {
         return await this._get(`projects/search?chain=${this._chain}&query=${_query}`);
     }
+
+    /**
+     * Returns an array of project info from matching _pool_addresses
+     * @param {string[]} _pool_addresses An array of pool addresses
+     */
+    async getProjectsBatchedByPools(_pool_addresses) {
+        return await this._get(`projects/batch`, 'POST', {pools: _pool_addresses})
+    }
+
+    /**
+     * Returns an array of project info from matching _tokens
+     * @param {string[]} _tokens An array of token addresses
+     */
+    async getProjectsBatchedByTokens(_tokens) {
+        return await this._get(`projects/batch`, 'POST', {tokens: _tokens})
+    }
 }
 
 module.exports = ProjectLib;

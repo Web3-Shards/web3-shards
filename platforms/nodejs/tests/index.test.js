@@ -1,6 +1,6 @@
 
 const ShardsClient = require("../");
-const shards = ShardsClient.Ethereum.V1;
+const shards = ShardsClient.API.Ethereum.V1;
 shards.configure({
     apiKey: "4d5ac613-474f-4c73-8be0-6122093a065c",
     maxRequestsPerSecond:-1,

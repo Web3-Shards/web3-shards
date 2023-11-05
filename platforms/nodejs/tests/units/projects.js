@@ -1,3 +1,5 @@
+const Policies = require("./policies");
+
 module.exports = [
     {
         testName: 'Get All Projects',
@@ -31,7 +33,6 @@ module.exports = [
                 {
                     key: 'projects',
                     $foreach: _el=>{
-                        if (_el.chain != 'eth') return false;
                         if (!_el.lastTradeTime) return false;
                         return parseInt(Date.now()/1000) - _el.lastTradeTime <= Policies.TOKEN_STATE.STALE;
                     }
@@ -49,10 +50,9 @@ module.exports = [
                 {
                     key: 'projects',
                     $foreach: _el=>{
-                        if (_el.chain != 'eth') return false;
                         if (!_el.lastTradeTime) return false;
                         const _diff = parseInt(Date.now()/1000) - _el.lastTradeTime;
-                        return _diff > Policies.TOKEN_STATE.STALE && _diff <= Policies.TOKEN_STATE.DEAD;
+                        return _diff > Policies.TOKEN_STATE.STALE && _diff < Policies.TOKEN_STATE.DEAD;
                     }
                 }
             ]
@@ -133,6 +133,48 @@ module.exports = [
                 {
                     key: 'projects.length',
                     value: 0
+                }
+            ]
+        }
+    },
+    {
+        testName: 'Get Batched Projects by Pool Address',
+        purpose: 'it should return a 200',
+        function: 'projects.getProjectsBatchedByPools',
+        args: [ [
+            "0x1035487ca79068f6617ae75ed3c844ce2d8a0c2a",
+            "0x2d0ba902badaa82592f0e1c04c71d66cea21d921"
+        ] ],
+        expected: {
+            $match: [
+                {
+                    key: 'statusCode',
+                    value: 200
+                },
+                {
+                    key: 'projects.length',
+                    value: 2
+                }
+            ]
+        }
+    },
+    {
+        testName: 'Get Batched Projects by Token Address',
+        purpose: 'it should return a 200',
+        function: 'projects.getProjectsBatchedByTokens',
+        args: [ [
+            "0xbed85cf4c249bd5fc187af600d652dd2beefddea",
+            "0x7bef710a5759d197ec0bf621c3df802c2d60d848"
+        ] ],
+        expected: {
+            $match: [
+                {
+                    key: 'statusCode',
+                    value: 200
+                },
+                {
+                    key: 'projects.length',
+                    value: 3
                 }
             ]
         }

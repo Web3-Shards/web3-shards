@@ -56,6 +56,14 @@ class PriceLib extends ShardsLib {
     async getPoolPriceCandles(_address, _startTime, _endTime, _interval=Period.dataValue(Period.HOUR_1), _page=1) {
         return await this._get(`prices/history/candles/pool?address=${_address}&starttime=${_startTime}&endtime=${_endTime}&interval=${_interval}&page=${_page}`);
     }
+
+    /**
+     * Returns an array of price info from matching _pools
+     * @param {string[]} _pools An array of pool addresses
+     */
+    async getBatchedPoolPrices(_pools) {
+        return await this._get(`projects/batch`, 'POST', {pools: _pools})
+    }
 }
 
 module.exports = PriceLib;

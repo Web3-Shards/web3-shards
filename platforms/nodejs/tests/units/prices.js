@@ -162,4 +162,25 @@ module.exports = [
             ]
         }
     },
+    {
+        testName: 'Get Batched Prices by Pool Address',
+        purpose: 'it should return a 200',
+        function: 'prices.getBatchedPoolPrices',
+        args: [ [
+            "0x1035487ca79068f6617ae75ed3c844ce2d8a0c2a",
+            "0x2d0ba902badaa82592f0e1c04c71d66cea21d921"
+        ] ],
+        expected: {
+            $match: [
+                {
+                    key: 'statusCode',
+                    value: 200
+                },
+                {
+                    key: 'projects.length',
+                    value: 2
+                }
+            ]
+        }
+    },
 ]

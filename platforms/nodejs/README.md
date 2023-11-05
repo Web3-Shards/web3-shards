@@ -1,22 +1,17 @@
 # Web3 Shards
 
-High-level libraries for accessing blockchain data on EVM-compatible chains.
+High-level libraries for accessing blockchain data on Ethereum, Binance Smart Chain, Arbitrum, & Shibarium.
 
 ## Getting Started :wave:
 
 > 📘 Get An API Key
 > 
-> To use the API, visit the discord group and request a key. <https://discord.com/invite/kJd8W7Nh7e>
 
-We just started our beta program and have begun issuing keys. For a limited time, Web3 Shards data is free to access. Get more information by visiting the Discord group.
+To use the API, create an account at https://web3shards.io/console. Create unlimited API keys. 
 
 ## Read the Docs 📘
 
-- [Blocks API](https://web3-shards.readme.io/reference/blocks-block)
-- [Price API](https://web3-shards.readme.io/reference/prices-pool)
-- [Pools API](https://web3-shards.readme.io/reference/pools-search)
-- [Projects API](https://web3-shards.readme.io/reference/projects-all)
-- [Trades API](https://web3-shards.readme.io/reference/txns-trades-token)
+- [Docs](https://web3-shards.readme.io/reference/getting-started-1)
 
 ## Connect to the API
 
