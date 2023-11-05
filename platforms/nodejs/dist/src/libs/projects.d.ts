@@ -8,6 +8,16 @@ declare class ProjectLib extends ShardsLib {
     getProjectWithPoolAddress(_address: any): Promise<any>;
     getProjectWithTokenAddress(_address: any): Promise<any>;
     searchProject(_query: any): Promise<any>;
+    /**
+     * Returns an array of project info from matching _pool_addresses
+     * @param {string[]} _pool_addresses An array of pool addresses
+     */
+    getProjectsBatchedByPools(_pool_addresses: string[]): Promise<any>;
+    /**
+     * Returns an array of project info from matching _tokens
+     * @param {string[]} _tokens An array of token addresses
+     */
+    getProjectsBatchedByTokens(_tokens: string[]): Promise<any>;
 }
 import ShardsLib = require("./lib");
 //# sourceMappingURL=projects.d.ts.map

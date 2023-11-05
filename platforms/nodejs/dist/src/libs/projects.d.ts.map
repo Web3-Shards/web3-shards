@@ -1,1 +1,1 @@
-{"version":3,"file":"projects.d.ts","sourceRoot":"","sources":["../../../src/libs/projects.js"],"names":[],"mappings":";AAcA;IAKI,6CAEC;IAED,gDAEC;IAED,+CAEC;IAED,8CAEC;IAED,oHAEC;IAED,uDAEC;IAED,wDAEC;IAED,yCAEC;CACJ"}
+{"version":3,"file":"projects.d.ts","sourceRoot":"","sources":["../../../src/libs/projects.js"],"names":[],"mappings":";AAcA;IAKI,6CAEC;IAED,gDAEC;IAED,+CAEC;IAED,8CAEC;IAED,oHAEC;IAED,uDAEC;IAED,wDAEC;IAED,yCAEC;IAED;;;OAGG;IACH,2CAFW,MAAM,EAAE,gBAIlB;IAED;;;OAGG;IACH,oCAFW,MAAM,EAAE,gBAIlB;CACJ"}
