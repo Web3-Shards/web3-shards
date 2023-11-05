@@ -62,7 +62,7 @@ class PriceLib extends ShardsLib {
      * @param {string[]} _pools An array of pool addresses
      */
     async getBatchedPoolPrices(_pools) {
-        return await this._get(`projects/batch`, 'POST', {pools: _pools})
+        return await this._get(`prices/pool/batch`, 'POST', {pools: _pools})
     }
 }
 
