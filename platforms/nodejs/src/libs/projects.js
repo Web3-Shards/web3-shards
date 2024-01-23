@@ -34,7 +34,7 @@ class ProjectLib extends ShardsLib {
     }
 
     async getTrendingProjects(_period, _volume, _priceChange, _tradeCount, _trueValue) {
-        return await this._get(`projects/trending?period=${_period}&volume=${_volume}&priceChange=${_priceChange}&tradeCount=${_tradeCount}&trueValue=${_trueValue}`);
+        return await this._get(`projects/trending?chain=${this._chain}&period=${_period}&volume=${_volume}&priceChange=${_priceChange}&tradeCount=${_tradeCount}&trueValue=${_trueValue}`);
     }
 
     async getProjectWithPoolAddress(_address) {
