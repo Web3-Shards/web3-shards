@@ -23,6 +23,6 @@
     "socket.io-client": "^4.7.1"
   },
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.3"
   }
 }
