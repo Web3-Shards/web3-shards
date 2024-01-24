@@ -4,7 +4,7 @@ declare class ProjectLib extends ShardsLib {
     getActiveProjects(_page?: number): Promise<any>;
     getStaleProjects(_page?: number): Promise<any>;
     getDeadProjects(_page?: number): Promise<any>;
-    getTrendingProjects(_period: any, _volume: any, _priceChange: any, _tradeCount: any, _trueValue: any): Promise<any>;
+    getTrendingProjects(_period: any, _volume: any, _priceChange: any, _tradeCount: any, _trueValue: any, _page?: number): Promise<any>;
     getProjectWithPoolAddress(_address: any): Promise<any>;
     getProjectWithTokenAddress(_address: any): Promise<any>;
     searchProject(_query: any): Promise<any>;
