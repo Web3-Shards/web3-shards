@@ -4,8 +4,8 @@
 Python 3.12
 
 ## Packages
-pip install "python-socketio[asyncio_client]"
-pip install "websocket-client"
+- pip install "python-socketio[asyncio_client]"
+- pip install "websocket-client"
 
 ## Setup
 
