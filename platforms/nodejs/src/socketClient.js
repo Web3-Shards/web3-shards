@@ -9,7 +9,6 @@ const NetMsg = {
     Error: 'error',
     NewBlockHeaders: 'newBlockHeaders',
     Logs: 'logs',
-    PendingTransactions: 'pendingTransactions',
     FilteredTrades: 'filteredTrades',
     FilteredPairs: 'filteredPairs'
 };
