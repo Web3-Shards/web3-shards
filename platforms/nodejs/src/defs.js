@@ -23,6 +23,9 @@ const EVM = {
     // Optimism: 0x00101,
     // Gnosis: 0x00110,
 }
+const TokenType = {
+    ERC20: "erc20"
+}
 const Period = {
     MINUTE_1: 'MINUTE_1',
     MINUTE_3: 'MINUTE_3',
@@ -168,5 +171,6 @@ module.exports = {
     SVC_URL,
     SVC_VERSIONS,
     EVM,
-    Period
+    Period,
+    TokenType
 }

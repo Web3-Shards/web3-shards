@@ -3,11 +3,14 @@ declare class ShardsClient {
     _chain: any;
     _url: string;
     blocks: import("./libs/blocks");
-    pools: import("./libs/pools");
     projects: import("./libs/projects");
     transactions: import("./libs/transactions");
     evm: import("./libs/evm");
     prices: import("./libs/prices");
+    balances: import("./libs/balances");
+    transfers: import("./libs/transfers");
+    holders: import("./libs/holders");
+    market: import("./libs/markets");
     /**
      * Configure the web3-shards client with your preferred settings:
      *  - apiKey: Your api key

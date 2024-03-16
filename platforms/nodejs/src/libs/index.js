@@ -1,8 +1,11 @@
 module.exports = {
     BlockLib: require("./blocks"),
-    PoolLib: require("./pools"),
     ProjectLib: require("./projects"),
     TransactionLib: require("./transactions"),
     EVMLib: require("./evm"),
     PriceLib: require("./prices"),
+    BalanceLib: require("./balances"),
+    TransferLib: require("./transfers"),
+    HolderLib: require("./holders"),
+    MarketLib: require("./markets")
 }

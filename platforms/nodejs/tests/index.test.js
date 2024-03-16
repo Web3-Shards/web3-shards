@@ -74,7 +74,7 @@ const testMock = async function(_mock, _class) {
                     if (!_actual) break;
                 }
 
-                if (_match.value != undefined) {
+                if (_match.value != undefined && _match.value != null) {
                     if (_match.value == '$notnull') {
                         if (!_actual) {
                             results.messages[_class].push(fail(_mock, {
@@ -85,8 +85,21 @@ const testMock = async function(_mock, _class) {
                         }
                         continue;
                     }
+
                     if (_match.value == 'null') _match.value = null;
                     let _expected = _match.value;
+                    
+                    if (!isNaN(_expected?.$gt)) {
+                        if (Number(_actual) <= Number(_expected.$gt)) {
+                            results.messages[_class].push(fail(_mock, {
+                                reason: `The expected key (${_match.key}) value did not satisfy the response value`,
+                                detail: `${_expected.$gt} >= ${_actual}`
+                            }));
+                            return;
+                        }
+                        continue;
+                    }
+
                     if (_expected != _actual) {
                         results.messages[_class].push(fail(_mock, {
                             reason: `The expected key (${_match.key}) value did not match the response value`,

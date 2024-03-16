@@ -11,7 +11,7 @@ LICENSE file in the root directory of this source tree.
 "use strict";
 
 const { EVM, SVC_URL, SVC_VERSIONS } = require("./defs");
-const { BlockLib, PoolLib, ProjectLib, TransactionLib, EVMLib, PriceLib } = require("./libs");
+const { BlockLib, ProjectLib, TransactionLib, EVMLib, PriceLib, BalanceLib, TransferLib, HolderLib, MarketLib } = require("./libs");
 
 const requireNumber = function(_obj, _field, _default) {
     if (!_obj[_field])
@@ -26,11 +26,14 @@ class ShardsClient {
         this._chain = _chain;
         this._url = `${SVC_URL}${_version}/`;
         this.blocks = new BlockLib(this._chain, this._url);
-        this.pools = new PoolLib(this._chain, this._url);
         this.projects = new ProjectLib(this._chain, this._url);
         this.transactions = new TransactionLib(this._chain, this._url);
         this.evm = new EVMLib(this._chain, this._url);
         this.prices = new PriceLib(this._chain, this._url);
+        this.balances = new BalanceLib(this._chain, this._url);
+        this.transfers = new TransferLib(this._chain, this._url);
+        this.holders = new HolderLib(this._chain, this._url);
+        this.market = new MarketLib(this._chain, this._url);
     }
 
     /**
@@ -46,11 +49,14 @@ class ShardsClient {
         _config = requireNumber(_config, "maxRequestsPerSecond", 10);
         _config = requireNumber(_config, "logger", 1);
         this.blocks.configure(this, _config);
-        this.pools.configure(this, _config);
         this.projects.configure(this, _config);
         this.transactions.configure(this, _config);
         this.evm.configure(this, _config);
         this.prices.configure(this, _config);
+        this.balances.configure(this, _config);
+        this.transfers.configure(this, _config);
+        this.holders.configure(this, _config);
+        this.market.configure(this, _config);
     }
 }
 

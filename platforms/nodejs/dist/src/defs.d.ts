@@ -30,4 +30,7 @@ export namespace Period {
     function seconds(_period: any): number;
     let keys: string[];
 }
+export namespace TokenType {
+    let ERC20: string;
+}
 //# sourceMappingURL=defs.d.ts.map

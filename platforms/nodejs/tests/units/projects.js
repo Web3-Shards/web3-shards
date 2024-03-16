@@ -174,7 +174,7 @@ module.exports = [
                 },
                 {
                     key: 'projects.length',
-                    value: 3
+                    value: 4
                 }
             ]
         }
