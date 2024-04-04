@@ -10,7 +10,8 @@ const NetMsg = {
     NewBlockHeaders: 'newBlockHeaders',
     Logs: 'logs',
     FilteredTrades: 'filteredTrades',
-    FilteredPairs: 'filteredPairs'
+    FilteredPairs: 'filteredPairs',
+    PriceAlerts: 'priceAlerts'
 };
 
 class ShardsSocketClient {
@@ -101,6 +102,11 @@ class ShardsSocketClient {
         this._socket.on(NetMsg.FilteredPairs, function(_data) {
             if (this._emitData)
                 this._emitData(NetMsg.FilteredPairs, _data);
+        }.bind(this));
+        
+        this._socket.on(NetMsg.PriceAlerts, function(_data) {
+            if (this._emitData)
+                this._emitData(NetMsg.PriceAlerts, _data);
         }.bind(this));
 
         let _handshake = {
