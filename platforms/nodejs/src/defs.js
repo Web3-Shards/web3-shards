@@ -23,6 +23,17 @@ const EVM = {
     // Optimism: 0x00101,
     // Gnosis: 0x00110,
 }
+const NetMsg = {
+    Connect: 'connect',
+    Disconnect: 'disconnect',
+    Handshake: 'handshake',
+    Error: 'error',
+    NewBlockHeaders: 'newBlockHeaders',
+    Logs: 'logs',
+    FilteredTrades: 'filteredTrades',
+    FilteredPairs: 'filteredPairs',
+    PriceAlerts: 'priceAlerts'
+};
 const TokenType = {
     ERC20: "erc20"
 }
@@ -171,6 +182,7 @@ module.exports = {
     SVC_URL,
     SVC_VERSIONS,
     EVM,
+    NetMsg,
     Period,
     TokenType
 }

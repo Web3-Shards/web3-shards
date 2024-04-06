@@ -1,18 +1,7 @@
 'use strict';
 
 const {io} = require('socket.io-client');
-
-const NetMsg = {
-    Connect: 'connect',
-    Disconnect: 'disconnect',
-    Handshake: 'handshake',
-    Error: 'error',
-    NewBlockHeaders: 'newBlockHeaders',
-    Logs: 'logs',
-    FilteredTrades: 'filteredTrades',
-    FilteredPairs: 'filteredPairs',
-    PriceAlerts: 'priceAlerts'
-};
+const {NetMsg} = require('./defs');
 
 class ShardsSocketClient {
     constructor(_localizedMatcher=null) {
