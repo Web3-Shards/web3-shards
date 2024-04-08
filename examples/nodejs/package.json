@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "web3-shards": "^1.1.1"
+    "web3-shards": "^1.1.2"
   }
 }
