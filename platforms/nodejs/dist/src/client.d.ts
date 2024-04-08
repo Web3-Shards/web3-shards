@@ -31,5 +31,9 @@ export namespace SHIBARIUM {
     let V1_2: ShardsClient;
     export { V1_2 as V1 };
 }
+export namespace BASE {
+    let V1_3: ShardsClient;
+    export { V1_3 as V1 };
+}
 export {};
 //# sourceMappingURL=client.d.ts.map

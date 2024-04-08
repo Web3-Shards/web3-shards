@@ -6,6 +6,18 @@ export namespace EVM {
     let Ethereum: string;
     let BinanceSmartChain: string;
     let Shibarium: string;
+    let Base: string;
+}
+export namespace NetMsg {
+    let Connect: string;
+    let Disconnect: string;
+    let Handshake: string;
+    let Error: string;
+    let NewBlockHeaders: string;
+    let Logs: string;
+    let FilteredTrades: string;
+    let FilteredPairs: string;
+    let PriceAlerts: string;
 }
 export namespace Period {
     let MINUTE_1: string;
