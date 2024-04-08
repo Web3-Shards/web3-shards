@@ -4,3 +4,4 @@ class Chain(Enum):
     Ethereum = "eth"
     BSC = "bsc"
     Shibarium = "shibarium"
+    Base = "base"

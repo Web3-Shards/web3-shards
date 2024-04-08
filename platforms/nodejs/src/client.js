@@ -69,5 +69,8 @@ module.exports = {
     },
     SHIBARIUM: {
         V1: new ShardsClient(EVM.Shibarium, SVC_VERSIONS.V1)
+    },
+    BASE: {
+        V1: new ShardsClient(EVM.Base, SVC_VERSIONS.V1)
     }
 };
