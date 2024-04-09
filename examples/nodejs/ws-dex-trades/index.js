@@ -4,8 +4,8 @@ const Shards = require('web3-shards');
 const {EVM, NetMsg} = require('web3-shards/src/defs');
 
 /* Setup Web3Shards Configuration */
-const SHARDS_API_KEY = "19ae03c3-d618-46ad-b734-61635284e077";
-const SHARDS_WEBSOCKET_ID = "cf7d0c18-2ef6-4393-972c-38a0a2c80f70";
+const SHARDS_API_KEY = "<your_api_key>";
+const SHARDS_WEBSOCKET_ID = "<your_websocket_id>";
 const CHAIN = EVM.Ethereum;
 
 const config = {
