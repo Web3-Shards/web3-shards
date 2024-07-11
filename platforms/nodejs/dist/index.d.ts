@@ -81,7 +81,7 @@ export let Sockets: {
         onError(_hook: any): any;
         _emitError: any;
         _config: any;
-        _socket: import("socket.io-client").Socket<import("@socket.io/component-emitter").DefaultEventsMap, import("@socket.io/component-emitter").DefaultEventsMap>;
+        _socket: any;
     };
     createConnection(_config: any, _localizedMatcher?: any): {
         _localizedMatcher: any;
@@ -96,7 +96,7 @@ export let Sockets: {
         onError(_hook: any): any;
         _emitError: any;
         _config: any;
-        _socket: import("socket.io-client").Socket<import("@socket.io/component-emitter").DefaultEventsMap, import("@socket.io/component-emitter").DefaultEventsMap>;
+        _socket: any;
     };
     subscribe(_hook: any): {
         _localizedMatcher: any;
@@ -111,7 +111,7 @@ export let Sockets: {
         onError(_hook: any): any;
         _emitError: any;
         _config: any;
-        _socket: import("socket.io-client").Socket<import("@socket.io/component-emitter").DefaultEventsMap, import("@socket.io/component-emitter").DefaultEventsMap>;
+        _socket: any;
     };
     _emitData: any;
     onDisconnect(_hook: any): {
@@ -127,7 +127,7 @@ export let Sockets: {
         onError(_hook: any): any;
         _emitError: any;
         _config: any;
-        _socket: import("socket.io-client").Socket<import("@socket.io/component-emitter").DefaultEventsMap, import("@socket.io/component-emitter").DefaultEventsMap>;
+        _socket: any;
     };
     _emitDisconnect: any;
     onError(_hook: any): {
@@ -143,10 +143,10 @@ export let Sockets: {
         onError(_hook: any): any;
         _emitError: any;
         _config: any;
-        _socket: import("socket.io-client").Socket<import("@socket.io/component-emitter").DefaultEventsMap, import("@socket.io/component-emitter").DefaultEventsMap>;
+        _socket: any;
     };
     _emitError: any;
     _config: any;
-    _socket: import("socket.io-client").Socket<import("@socket.io/component-emitter").DefaultEventsMap, import("@socket.io/component-emitter").DefaultEventsMap>;
+    _socket: any;
 };
 //# sourceMappingURL=index.d.ts.map

@@ -20,6 +20,6 @@ declare class ShardsSocketClient {
     onError(_hook: any): this;
     _emitError: any;
     _config: any;
-    _socket: import("socket.io-client").Socket<import("@socket.io/component-emitter").DefaultEventsMap, import("@socket.io/component-emitter").DefaultEventsMap>;
+    _socket: any;
 }
 //# sourceMappingURL=socketClient.d.ts.map
