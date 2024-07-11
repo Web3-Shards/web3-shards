@@ -33,7 +33,7 @@ class HolderLib extends ShardsLib {
      * @param {TokenType} _type 
      * @returns holder counts by chain
      */
-    async getHolderCount(_token, _type) {
+    async getCrossChainHolderCount(_token, _type) {
         return await this._get(`holders/count/cross-chain?type=${_type}&token=${_token}`);
     }
 

@@ -8,6 +8,13 @@ declare class HolderLib extends ShardsLib {
      */
     getHolderCount(_token: address, _type: TokenType): Promise<any>;
     /**
+     * Get the latest holder count for a token across all supported chains
+     * @param {address} _token
+     * @param {TokenType} _type
+     * @returns holder counts by chain
+     */
+    getCrossChainHolderCount(_token: address, _type: TokenType): Promise<any>;
+    /**
      * Get active holders for a token ranked by balance
      * @param {address} _token
      * @param {TokenType} _type

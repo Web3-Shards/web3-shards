@@ -43,6 +43,7 @@ async api.balances.getBalancesOnWalletForToken(_wallet, _token, _type, _page=1)
 ### Holders
 ```javascript
 async api.holders.getHolderCount(_token, _type)
+async api.holders.getCrossChainHolderCount(_token, _type)
 async api.holders.getHolderList(_token, _type, _page=1)
 ```
 ### Markets
