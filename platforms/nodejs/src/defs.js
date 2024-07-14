@@ -18,6 +18,7 @@ const EVM = {
     BinanceSmartChain: "bsc",
     Shibarium: "shibarium",
     Base: "base",
+    Polygon: "polygon",
     // Arbitrum: 0x00010,
     // Polygon: 0x00011,
     // Avalanche: 0x00100,

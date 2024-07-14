@@ -28,16 +28,6 @@ class HolderLib extends ShardsLib {
     }
 
     /**
-     * Get the latest holder count for a token across all supported chains
-     * @param {address} _token 
-     * @param {TokenType} _type 
-     * @returns holder counts by chain
-     */
-    async getCrossChainHolderCount(_token, _type) {
-        return await this._get(`holders/count/cross-chain?type=${_type}&token=${_token}`);
-    }
-
-    /**
      * Get active holders for a token ranked by balance
      * @param {address} _token 
      * @param {TokenType} _type 

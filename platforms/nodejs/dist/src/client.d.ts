@@ -35,5 +35,9 @@ export namespace BASE {
     let V1_3: ShardsClient;
     export { V1_3 as V1 };
 }
+export namespace POLYGON {
+    let V1_4: ShardsClient;
+    export { V1_4 as V1 };
+}
 export {};
 //# sourceMappingURL=client.d.ts.map

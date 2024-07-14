@@ -72,5 +72,8 @@ module.exports = {
     },
     BASE: {
         V1: new ShardsClient(EVM.Base, SVC_VERSIONS.V1)
-    }
+    },
+    POLYGON: {
+        V1: new ShardsClient(EVM.Polygon, SVC_VERSIONS.V1)
+    },
 };

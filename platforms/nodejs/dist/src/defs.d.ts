@@ -7,6 +7,7 @@ export namespace EVM {
     let BinanceSmartChain: string;
     let Shibarium: string;
     let Base: string;
+    let Polygon: string;
 }
 export namespace NetMsg {
     let Connect: string;
