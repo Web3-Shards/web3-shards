@@ -11,7 +11,7 @@ LICENSE file in the root directory of this source tree.
 "use strict";
 
 const { EVM, SVC_URL, SVC_VERSIONS } = require("./defs");
-const { BlockLib, ProjectLib, TransactionLib, EVMLib, PriceLib, BalanceLib, TransferLib, HolderLib, MarketLib } = require("./libs");
+const { BlockLib, ProjectLib, TransactionLib, EVMLib, PriceLib, BalanceLib, TransferLib, HolderLib, MarketLib, CoinRankerLib } = require("./libs");
 
 const requireNumber = function(_obj, _field, _default) {
     if (!_obj[_field])
@@ -34,6 +34,7 @@ class ShardsClient {
         this.transfers = new TransferLib(this._chain, this._url);
         this.holders = new HolderLib(this._chain, this._url);
         this.market = new MarketLib(this._chain, this._url);
+        this.coinranker = new CoinRankerLib(this._chain, this._url);
     }
 
     /**
@@ -57,6 +58,7 @@ class ShardsClient {
         this.transfers.configure(this, _config);
         this.holders.configure(this, _config);
         this.market.configure(this, _config);
+        this.coinranker.configure(this, _config);
     }
 }
 

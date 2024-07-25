@@ -7,5 +7,6 @@ module.exports = {
     BalanceLib: require("./balances"),
     TransferLib: require("./transfers"),
     HolderLib: require("./holders"),
-    MarketLib: require("./markets")
+    MarketLib: require("./markets"),
+    CoinRankerLib: require("./coinranker")
 }
