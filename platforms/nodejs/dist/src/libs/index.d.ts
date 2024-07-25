@@ -7,4 +7,5 @@ export let BalanceLib: typeof import("./balances");
 export let TransferLib: typeof import("./transfers");
 export let HolderLib: typeof import("./holders");
 export let MarketLib: typeof import("./markets");
+export let CoinRankerLib: typeof import("./coinranker");
 //# sourceMappingURL=index.d.ts.map

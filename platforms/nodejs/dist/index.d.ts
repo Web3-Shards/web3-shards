@@ -12,6 +12,7 @@ export let API: {
             transfers: import("./src/libs/transfers");
             holders: import("./src/libs/holders");
             market: import("./src/libs/markets");
+            coinranker: import("./src/libs/coinranker");
             configure(_config: any): void;
         };
     };
@@ -28,6 +29,7 @@ export let API: {
             transfers: import("./src/libs/transfers");
             holders: import("./src/libs/holders");
             market: import("./src/libs/markets");
+            coinranker: import("./src/libs/coinranker");
             configure(_config: any): void;
         };
     };
@@ -44,6 +46,7 @@ export let API: {
             transfers: import("./src/libs/transfers");
             holders: import("./src/libs/holders");
             market: import("./src/libs/markets");
+            coinranker: import("./src/libs/coinranker");
             configure(_config: any): void;
         };
     };
@@ -60,6 +63,7 @@ export let API: {
             transfers: import("./src/libs/transfers");
             holders: import("./src/libs/holders");
             market: import("./src/libs/markets");
+            coinranker: import("./src/libs/coinranker");
             configure(_config: any): void;
         };
     };
@@ -76,6 +80,7 @@ export let API: {
             transfers: import("./src/libs/transfers");
             holders: import("./src/libs/holders");
             market: import("./src/libs/markets");
+            coinranker: import("./src/libs/coinranker");
             configure(_config: any): void;
         };
     };

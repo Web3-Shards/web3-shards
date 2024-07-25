@@ -11,6 +11,7 @@ declare class ShardsClient {
     transfers: import("./libs/transfers");
     holders: import("./libs/holders");
     market: import("./libs/markets");
+    coinranker: import("./libs/coinranker");
     /**
      * Configure the web3-shards client with your preferred settings:
      *  - apiKey: Your api key

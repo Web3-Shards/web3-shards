@@ -94,6 +94,14 @@ async api.blocks.getBlocks(_blocks)
 ```javascript
 async api.evm.getNativeBalance(_address)
 ```
+### CoinRanker
+```javascript
+async api.coinranker.getTrendingList()
+async api.coinranker.getRecentDipperList()
+async api.coinranker.getHighVolumeList()
+async api.coinranker.getHighLiquidityList()
+async api.coinranker.getHighLifetimeReturnList()
+```
 
 ## Connect With Websockets
 
