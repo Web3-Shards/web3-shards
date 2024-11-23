@@ -78,4 +78,7 @@ module.exports = {
     POLYGON: {
         V1: new ShardsClient(EVM.Polygon, SVC_VERSIONS.V1)
     },
+    SOLANA: {
+        V1: new ShardsClient(EVM.Solana, SVC_VERSIONS.V1)
+    },
 };
