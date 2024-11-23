@@ -40,5 +40,9 @@ export namespace POLYGON {
     let V1_4: ShardsClient;
     export { V1_4 as V1 };
 }
+export namespace SOLANA {
+    let V1_5: ShardsClient;
+    export { V1_5 as V1 };
+}
 export {};
 //# sourceMappingURL=client.d.ts.map

@@ -6,6 +6,7 @@ declare class ShardsSocketClient {
     _url: string;
     _hook(): void;
     _connect(_config: any): this;
+    overrideUrl(_url: any): this;
     /**
      * Creates a new websocket connection
      * @param {*} _config Config: {chain,shardsApiKey,shardsWebsocketId}
