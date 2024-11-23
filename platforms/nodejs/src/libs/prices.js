@@ -19,7 +19,8 @@ class PriceLib extends ShardsLib {
         this._nativeToken = _chain == EVM.Ethereum ? 'eth' : 
                             _chain == EVM.BinanceSmartChain ? 'bnb' : 
                             _chain == EVM.Shibarium ? 'shibarium' :
-                            _chain == EVM.Polygon ? 'polygon' : 'eth';
+                            _chain == EVM.Polygon ? 'polygon' :
+                            _chain == EVM.Solana ? 'solana' : 'eth';
     }
     
     async getNativePrice() {
@@ -39,23 +40,23 @@ class PriceLib extends ShardsLib {
     }
 
     async getPoolPrice(_address) {
-        return await this._get(`prices/pool?address=${_address}`);
+        return await this._get(`prices/pool?address=${_address}&chain=${this._chain}`);
     }
 
     async getLatestPoolPriceCandle(_address, _interval=Period.dataValue(Period.MINUTE_1)) {
-        return await this._get(`prices/candles/latest/pool?address=${_address}&interval=${_interval}`);
+        return await this._get(`prices/candles/latest/pool?address=${_address}&interval=${_interval}&chain=${this._chain}`);
     }
 
     async getPoolPriceAtTime(_address, _timestamp) {
-        return await this._get(`prices/history/pool?address=${_address}&timestamp=${_timestamp}`);
+        return await this._get(`prices/history/pool?address=${_address}&timestamp=${_timestamp}&chain=${this._chain}`);
     }
 
     async getPoolPriceLines(_address, _startTime, _endTime, _interval=Period.dataValue(Period.HOUR_1), _page=1) {
-        return await this._get(`prices/history/lines/pool?address=${_address}&starttime=${_startTime}&endtime=${_endTime}&interval=${_interval}&page=${_page}`);
+        return await this._get(`prices/history/lines/pool?address=${_address}&starttime=${_startTime}&endtime=${_endTime}&interval=${_interval}&page=${_page}&chain=${this._chain}`);
     }
 
     async getPoolPriceCandles(_address, _startTime, _endTime, _interval=Period.dataValue(Period.HOUR_1), _page=1) {
-        return await this._get(`prices/history/candles/pool?address=${_address}&starttime=${_startTime}&endtime=${_endTime}&interval=${_interval}&page=${_page}`);
+        return await this._get(`prices/history/candles/pool?address=${_address}&starttime=${_startTime}&endtime=${_endTime}&interval=${_interval}&page=${_page}&chain=${this._chain}`);
     }
 
     /**

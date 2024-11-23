@@ -8,6 +8,7 @@ export namespace EVM {
     let Shibarium: string;
     let Base: string;
     let Polygon: string;
+    let Solana: string;
 }
 export namespace NetMsg {
     let Connect: string;
