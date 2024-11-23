@@ -12,6 +12,11 @@ class ShardsSocketClient {
 
     }
 
+    overrideUrl(_url) {
+        this._url = _url;
+        return this;
+    }
+
     /**
      * Creates a new websocket connection
      * @param {*} _config Config: {chain,shardsApiKey,shardsWebsocketId}
