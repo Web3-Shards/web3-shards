@@ -4,9 +4,9 @@ const {io} = require('socket.io-client');
 const {NetMsg} = require('./defs');
 
 class ShardsSocketClient {
-    constructor(_localizedMatcher=null) {
+    constructor(_localizedMatcher=null, _overrideUrl=null) {
         this._localizedMatcher = _localizedMatcher;
-        this._url = 'wss://wiretap.web3shards.io';
+        this._url = _overrideUrl || 'wss://wiretap.web3shards.io';
         this._hook = this._hook.bind(this);
         this._connect = this._connect.bind(this);
 
@@ -24,7 +24,7 @@ class ShardsSocketClient {
      * @returns 
      */
     createConnection(_config, _localizedMatcher=null) {
-        let _conn = new ShardsSocketClient(_localizedMatcher);
+        let _conn = new ShardsSocketClient(_localizedMatcher, this._url);
         return _conn._connect(_config);
     }
 
