@@ -1,9 +1,9 @@
 declare const _exports: ShardsSocketClient;
 export = _exports;
 declare class ShardsSocketClient {
-    constructor(_localizedMatcher?: any);
+    constructor(_localizedMatcher?: any, _overrideUrl?: any);
     _localizedMatcher: any;
-    _url: string;
+    _url: any;
     _hook(): void;
     _connect(_config: any): this;
     overrideUrl(_url: any): this;

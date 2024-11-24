@@ -25,7 +25,7 @@ class MarketLib extends ShardsLib {
      * @returns a paginated list of market stats
      */
     async getMarketStats(_startTime, _endTime, _page=1) {
-        return await this._get(`market/stats?chain=${this._chain}&interval=15m&startTime=${_startTime}&endTime=${_endTime}&page=${_page}&chain=${this._chain}`);
+        return await this._get(`market/stats?chain=${this._chain}&interval=15m&startTime=${_startTime}&endTime=${_endTime}&page=${_page}`);
     }
 
 }

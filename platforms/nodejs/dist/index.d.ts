@@ -104,11 +104,11 @@ export let API: {
 };
 export let Sockets: {
     _localizedMatcher: any;
-    _url: string;
+    _url: any;
     _hook(): void;
     _connect(_config: any): {
         _localizedMatcher: any;
-        _url: string;
+        _url: any;
         _hook(): void;
         _connect(_config: any): any;
         overrideUrl(_url: any): any;
@@ -124,7 +124,7 @@ export let Sockets: {
     };
     overrideUrl(_url: any): {
         _localizedMatcher: any;
-        _url: string;
+        _url: any;
         _hook(): void;
         _connect(_config: any): any;
         overrideUrl(_url: any): any;
@@ -140,7 +140,7 @@ export let Sockets: {
     };
     createConnection(_config: any, _localizedMatcher?: any): {
         _localizedMatcher: any;
-        _url: string;
+        _url: any;
         _hook(): void;
         _connect(_config: any): any;
         overrideUrl(_url: any): any;
@@ -156,7 +156,7 @@ export let Sockets: {
     };
     subscribe(_hook: any): {
         _localizedMatcher: any;
-        _url: string;
+        _url: any;
         _hook(): void;
         _connect(_config: any): any;
         overrideUrl(_url: any): any;
@@ -173,7 +173,7 @@ export let Sockets: {
     _emitData: any;
     onDisconnect(_hook: any): {
         _localizedMatcher: any;
-        _url: string;
+        _url: any;
         _hook(): void;
         _connect(_config: any): any;
         overrideUrl(_url: any): any;
@@ -190,7 +190,7 @@ export let Sockets: {
     _emitDisconnect: any;
     onError(_hook: any): {
         _localizedMatcher: any;
-        _url: string;
+        _url: any;
         _hook(): void;
         _connect(_config: any): any;
         overrideUrl(_url: any): any;
