@@ -20,6 +20,7 @@ const EVM = {
     Base: "base",
     Polygon: "polygon",
     Solana: "solana",
+    XRP: "xrp",
     // Arbitrum: 0x00010,
     // Avalanche: 0x00100,
     // Optimism: 0x00101,

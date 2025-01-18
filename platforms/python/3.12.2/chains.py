@@ -5,3 +5,6 @@ class Chain(Enum):
     BSC = "bsc"
     Shibarium = "shibarium"
     Base = "base"
+    Polygon = "polygon"
+    Solana = "solana"
+    XRP = "xrp"

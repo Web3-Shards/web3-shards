@@ -20,7 +20,8 @@ class PriceLib extends ShardsLib {
                             _chain == EVM.BinanceSmartChain ? 'bnb' : 
                             _chain == EVM.Shibarium ? 'shibarium' :
                             _chain == EVM.Polygon ? 'polygon' :
-                            _chain == EVM.Solana ? 'solana' : 'eth';
+                            _chain == EVM.Solana ? 'solana' :
+                            _chain == EVM.XRP ? 'xrp' : 'eth';
     }
     
     async getNativePrice() {

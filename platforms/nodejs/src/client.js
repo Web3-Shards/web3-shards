@@ -81,4 +81,7 @@ module.exports = {
     SOLANA: {
         V1: new ShardsClient(EVM.Solana, SVC_VERSIONS.V1)
     },
+    XRP: {
+        V1: new ShardsClient(EVM.XRP, SVC_VERSIONS.V1)
+    },
 };

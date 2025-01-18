@@ -1,6 +1,6 @@
 # Web3 Shards
 
-High-level libraries for accessing blockchain data on Ethereum, Binance Smart Chain, Arbitrum, & Shibarium.
+High-level libraries for accessing blockchain data on Solana, XRP, Ethereum, Binance Smart Chain, Base, Polygon, & Shibarium.
 
 ## Getting Started :wave:
 
