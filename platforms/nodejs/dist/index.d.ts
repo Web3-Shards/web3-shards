@@ -101,6 +101,23 @@ export let API: {
             configure(_config: any): void;
         };
     };
+    XRP: {
+        V1: {
+            _chain: any;
+            _url: string;
+            blocks: import("./src/libs/blocks");
+            projects: import("./src/libs/projects");
+            transactions: import("./src/libs/transactions");
+            evm: import("./src/libs/evm");
+            prices: import("./src/libs/prices");
+            balances: import("./src/libs/balances");
+            transfers: import("./src/libs/transfers");
+            holders: import("./src/libs/holders");
+            market: import("./src/libs/markets");
+            coinranker: import("./src/libs/coinranker");
+            configure(_config: any): void;
+        };
+    };
 };
 export let Sockets: {
     _localizedMatcher: any;

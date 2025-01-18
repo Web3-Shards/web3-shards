@@ -9,6 +9,7 @@ export namespace EVM {
     let Base: string;
     let Polygon: string;
     let Solana: string;
+    let XRP: string;
 }
 export namespace NetMsg {
     let Connect: string;

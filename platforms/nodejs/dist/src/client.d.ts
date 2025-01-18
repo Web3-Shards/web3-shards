@@ -44,5 +44,9 @@ export namespace SOLANA {
     let V1_5: ShardsClient;
     export { V1_5 as V1 };
 }
+export namespace XRP {
+    let V1_6: ShardsClient;
+    export { V1_6 as V1 };
+}
 export {};
 //# sourceMappingURL=client.d.ts.map
